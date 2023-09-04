@@ -1,5 +1,15 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+
+## Description and Background
+
+Introducing "Movie Magic": A premium movie discovery platform built with Next.js, Tailwind CSS, Node.js, and MongoDB. Harnessing a curated IMDb dataset, it streamlines your search for top films. Find specific titles, get bespoke recommendations, explore detailed statistics, or secure a curated random pick.
+
+1. **Search API**: Find movies with ease based on various parameters such as name, year of release, duration, rating, metascore, earnings, votes, and even keywords in the description.
+2. **Recommendation API**: Get personalized movie recommendations based on certain parameters like similar metascore, user rating, release period, or keywords in the description.
+3. **Statistics API**: Discover interesting movie statistics like the average rating or metascore for a given year, the highest-grossing movies of all time, or the most popular movies based on votes.
+4. **Random Movie API**: Feeling adventurous? Get a random movie from the database and discover something new!
+
 ## Getting Started
 
 First, run the development server:
@@ -32,3 +42,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
