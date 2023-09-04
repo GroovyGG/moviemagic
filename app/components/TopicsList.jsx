@@ -13,7 +13,7 @@ export default function TopicsList() {
 
                 <div className="flex gap-3 items-center">
                     <RemoveBtn/>
-                    <Link href='/editTopic/123'>
+                    <Link href='/editMovie/123'>
                         <div className="bg-slate-200 p-2 rounded-full cursor-pointer hover:bg-slate-300 transition-colors duration-300">
                             <HiPencilAlt className="text-slate-600 hover:text-slate-800" size={24} />
                         </div>
