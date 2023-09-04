@@ -19,8 +19,10 @@ export default function RootLayout({ children }) {
       <body className={inter.className + " bg-gradient-to-br from-gray-100 to-white"}>
         <div className="max-w-4xl mx-auto py-6 px-4 sm:px-6 lg:px-8 transition-all duration-500">
           <Navbar/>
-          <main className="mt-6">
+          
+          <main className="mt-8">
             {children}
+            
           </main>
         </div>
       </body>
