@@ -1,5 +1,7 @@
 # Movie Magic
 
+![wt](./movie-magic.png)
+
 
 
 Discover the magic of cinema with "Movie Magic" – a premium platform designed for avid movie enthusiasts. Delve into a rich IMDb dataset to unearth top-rated films, unique recommendations, intriguing statistics, and much more. Built for performance and elegance with Next.js, Tailwind CSS, Node.js, and MongoDB.
