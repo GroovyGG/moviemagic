@@ -4,10 +4,12 @@ import Link from "next/link";
 import { useState, useEffect } from 'react';
 import RemoveBtn from "./RemoveBtn";
 import { HiPencilAlt } from "react-icons/hi";
+import Cors from 'micro-cors';
+
 
 const getMovieNames = async () => {
     try {
-        const res = await fetch('http://movie.bihanzhu.com/api/movies', {
+        const res = await fetch('http://movie.bihanzhu.com', {
             cache: 'no-store',
         });
 
