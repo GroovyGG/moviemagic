@@ -8,7 +8,7 @@ import { HiPencilAlt } from "react-icons/hi";
 
 const getMovieNames = async () => {
     try {
-        const res = await fetch('https://moviemagic-dpiwhd2cj-groovygg.vercel.app/api/movies', {
+        const res = await fetch('https://moviemagic-eosin.vercel.app/api/movies', {
     cache: 'no-store',
     }); 
 

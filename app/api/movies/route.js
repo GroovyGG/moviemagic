@@ -91,7 +91,7 @@ export async function handler(request) {
     await nextCors(request, {
         origin: [
             'https://moviemagic-dpiwhd2cj-groovygg.vercel.app',
-            'https://moviemagic-osv0aar6t-groovygg.vercel.app',
+            'https://moviemagic-eosin.vercel.app',
             'https://movie.bihanzhu.com',
             'https://localhost:3000',
         ],
