@@ -4,14 +4,14 @@ import Link from "next/link";
 import { useState, useEffect } from 'react';
 import RemoveBtn from "./RemoveBtn";
 import { HiPencilAlt } from "react-icons/hi";
-import Cors from 'micro-cors';
 
 
 const getMovieNames = async () => {
     try {
         const res = await fetch('https://moviemagic-dpiwhd2cj-groovygg.vercel.app/api/movies', {
-            cache: 'no-store',
-        });
+    cache: 'no-store',
+    }); 
+
 
         if (!res.ok) {
             throw new Error(`Failed to fetch movies. Status: ${res.status}`);
