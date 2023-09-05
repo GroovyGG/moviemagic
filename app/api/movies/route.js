@@ -49,7 +49,7 @@ export async function GET() {
     try {
         await connectMongoDB();
         const movies = await Movie.find();
-        return NextResponse.json({ data: movies, message: "Movies fetched successfully" });
+        return NextResponse.json({movies}, { status: 200 });
 
     } catch (error) {
         console.error("Error while fetching movies:", error);
