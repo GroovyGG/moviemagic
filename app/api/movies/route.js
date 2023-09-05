@@ -1,4 +1,4 @@
-import nextCors from 'next-cors';
+
 import connectMongoDB from "@/libs/mongodb";
 import Movie from "@/models/movie";
 import { NextResponse } from "next/server";
@@ -85,31 +85,3 @@ export async function DELETE(request) {
         return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
     }
 }
-
-export async function handler(request) {
-    // Use nextCors
-    await nextCors(request, {
-        origin: [
-            'https://movie.bihanzhu.com',
-            'https://localhost:3000',
-        ],
-    });
-
-    // Handle different HTTP methods
-    if (request.method === 'POST') {
-        return await POST(request);
-    }
-
-    if (request.method === 'GET') {
-        return await GET();
-    }
-
-    if (request.method === 'DELETE') {
-        return await DELETE(request);
-    }
-
-    // Default response if no method matches
-    return NextResponse.json({ message: "Method not allowed" }, { status: 405 });
-}
-
-export default handler;
