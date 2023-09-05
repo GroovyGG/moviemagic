@@ -1,11 +1,9 @@
-import TopicsList from "./components/TopicsList";
+import MoviesList from "./components/MoviesList";
 
 export default function Home() {
   return (
     <>
-      <TopicsList />
-      <TopicsList />
-      <TopicsList />
+      <MoviesList />
     </>
   )
 }
