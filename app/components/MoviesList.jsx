@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useState, useEffect } from 'react';
 import RemoveBtn from "./RemoveBtn";
 import { HiPencilAlt } from "react-icons/hi";
 
@@ -9,9 +12,13 @@ const getMovieNames = async () => {
         });
 
         if (!res.ok) {
-            throw new Error("Failed to fetch movies");
+            throw new Error(`Failed to fetch movies. Status: ${res.status}`);
         }
         const data = await res.json();
+
+        // Log the response for visibility
+        console.log("Fetched data from API:", data);
+
         return data;  // make sure this is an array
     } catch (error) {
         console.error("Error fetching movie name:", error.message);
@@ -19,16 +26,22 @@ const getMovieNames = async () => {
     }
 };
 
+export default function MoviesList() {
+    const [movieNames, setMovieNames] = useState([]);
 
-export default async function MoviesList() {
-    const { movies: movieNames } = await getMovieNames();
-
-    console.log('API Response:', movieNames);
+    useEffect(() => {
+        (async () => {
+            const movies = await getMovieNames();
+            console.log("Movies after fetch:", movies);
+            setMovieNames(movies.movies);
+        })();
+    }, []);
+    
 
     return (
         <>
             {Array.isArray(movieNames) && movieNames.map((m) => (
-                <div
+                <div 
                     key={m._id}
                     className="p-5 border border-slate-200 my-4 flex justify-between gap-4 items-center bg-white shadow-md hover:shadow-lg transition-shadow duration-300 rounded-lg">
                 <div>
