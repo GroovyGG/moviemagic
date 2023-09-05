@@ -9,7 +9,7 @@ import Cors from 'micro-cors';
 
 const getMovieNames = async () => {
     try {
-        const res = await fetch('http://movie.bihanzhu.com', {
+        const res = await fetch('https://movie.bihanzhu.com', {
             cache: 'no-store',
         });
 
