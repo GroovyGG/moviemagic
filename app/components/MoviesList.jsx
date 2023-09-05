@@ -28,7 +28,8 @@ export default async function MoviesList() {
     return (
         <>
             {Array.isArray(movieNames) && movieNames.map((m) => (
-                <div 
+                <div
+                    key={m._id}
                     className="p-5 border border-slate-200 my-4 flex justify-between gap-4 items-center bg-white shadow-md hover:shadow-lg transition-shadow duration-300 rounded-lg">
                 <div>
                     <h2 className="font-semibold text-2xl text-slate-800 mb-1">{m.movieName}</h2>
