@@ -8,7 +8,7 @@ import { HiPencilAlt } from "react-icons/hi";
 
 const getMovieNames = async () => {
     try {
-        const res = await fetch('https://movies.bihanzhu.com/api/movies', {
+        const res = await fetch('https://movie.bihanzhu.com/api/movies', {
     cache: 'no-store',
     }); 
 
