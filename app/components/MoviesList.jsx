@@ -9,7 +9,7 @@ import Cors from 'micro-cors';
 
 const getMovieNames = async () => {
     try {
-        const res = await fetch('https://movie.bihanzhu.com', {
+        const res = await fetch('https://moviemagic-dpiwhd2cj-groovygg.vercel.app/api/movies', {
             cache: 'no-store',
         });
 
