@@ -44,3 +44,51 @@ export async function GET() {
         return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
     }
 }
+
+export async function DELETE(request) {
+    try {
+        await connectMongoDB();
+
+        const { movieName } = await request.json();
+
+        if (!movieName) {
+            return NextResponse.json({ message: "Movie name is required" }, { status: 400 });
+        }
+
+        const movie = await Movie.findOneAndDelete({ movieName });
+
+        if (!movie) {
+            return NextResponse.json({ message: "Movie not found" }, { status: 404 });
+        }
+
+        return NextResponse.json({ message: "Movie deleted successfully" });
+
+    } catch (error) {
+        console.error("Error while deleting movie:", error);
+        return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
+    }
+}
+
+export async function UPDATE(request) {
+    try {
+        await connectMongoDB();
+
+        const { currentMovieName, newDetails } = await request.json();
+
+        if (!currentMovieName || !newDetails) {
+            return NextResponse.json({ message: "Both current movie name and new details are required" }, { status: 400 });
+        }
+
+        const movie = await Movie.findOneAndUpdate({ movieName: currentMovieName }, newDetails, { new: true });
+
+        if (!movie) {
+            return NextResponse.json({ message: "Movie not found" }, { status: 404 });
+        }
+
+        return NextResponse.json({ message: "Movie updated successfully", data: movie });
+
+    } catch (error) {
+        console.error("Error while updating movie:", error);
+        return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
+    }
+}
