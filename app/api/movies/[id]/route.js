@@ -3,6 +3,7 @@ import connectMongoDB from "@/libs/mongodb";
 import { NextResponse } from "next/server";
 
 export async function PUT(request, { params }) {
+    setCorsHeaders(request, NextResponse);
     try {
         // Connect to MongoDB
         await connectMongoDB();
@@ -50,6 +51,7 @@ export async function PUT(request, { params }) {
 // Existing imports and PUT function ...
 
 export async function GET(request, { params }) {
+    setCorsHeaders(request, NextResponse);
     try {
         // Connect to MongoDB
         await connectMongoDB();

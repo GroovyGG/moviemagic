@@ -11,14 +11,10 @@ export default function RemoveBtn({ id, onRemove }) {  // Destructured id and on
         if (!confirmed) return;
     
         const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-        // Ensure the URL is properly formatted
-        const endpoint = apiUrl.endsWith("/") 
-            ? `api/movies?id=${id}` 
-            : `/api/movies?id=${id}`;
-    
+        
         try {
             
-            const res = await fetch(apiUrl + endpoint, {
+            const res = await fetch(`${apiUrl}/api/movies?id=${id}`, {
                 method: 'DELETE',
                 cache: 'no-store'
             });

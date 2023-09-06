@@ -2,9 +2,12 @@
 import connectMongoDB from "@/libs/mongodb";
 import Movie from "@/models/movie";
 import { NextResponse } from "next/server";
-
+import setCorsHeaders from "@/libs/cors"; 
 
 export async function POST(request) {
+
+    setCorsHeaders(request, NextResponse);
+
     try {
         // Ensure MongoDB connection
         await connectMongoDB();
@@ -59,6 +62,7 @@ export async function GET() {
 }
 
 export async function DELETE(request) {
+    setCorsHeaders(request, NextResponse);
     try {
         await connectMongoDB();
 

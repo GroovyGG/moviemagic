@@ -15,10 +15,9 @@ const getMovieById = async (id) => {
 
     try {
         const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-        // Ensure the URL is properly formatted
-        const endpoint = apiUrl.endsWith("/") ? `api/movies/${id}` : `/api/movies/${id}`;
         
-        const res = await fetch(apiUrl + endpoint, {
+    
+        const res = await fetch(`${apiUrl}/api/movies/${id}`, {
             cache: "no-store",
         });
 
@@ -68,3 +67,4 @@ export default async function EditMovie({ params }) {
 
     return <EditMovieForm id={fetchedId} movieName={movieName} description={description} />;
 }
+
