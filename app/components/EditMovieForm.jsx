@@ -11,9 +11,10 @@ export default function EditMovieForm({ id, movieName, description }) { // Destr
     const handleSubmit = async (e) => {
         
         e.preventDefault();
-    
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL; // Get the API URL from .env
+
         try {
-          const res = await fetch(`http://localhost:3000/api/movies/${id}`, {
+          const res = await fetch(`${apiUrl}/api/movies/${id}`, {
             method: "PUT",
             headers: {
               "Content-type": "application/json",
