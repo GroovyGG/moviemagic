@@ -11,8 +11,6 @@ const getMovieNames = async () => {
         const res = await fetch('api/movies', {
     cache: 'no-store',
     }); 
-
-
         if (!res.ok) {
             throw new Error(`Failed to fetch movies. Status: ${res.status}`);
         }
@@ -52,7 +50,7 @@ export default function MoviesList() {
                 </div>
 
                 <div className="flex gap-3 items-center">
-                    <RemoveBtn/>
+                    <RemoveBtn id={m._id}/>
                     <Link href={`/editMovie/${m._id}`}>
                         <div className="bg-slate-200 p-2 rounded-full cursor-pointer hover:bg-slate-300 transition-colors duration-300">
                             <HiPencilAlt className="text-slate-600 hover:text-slate-800" size={24} />

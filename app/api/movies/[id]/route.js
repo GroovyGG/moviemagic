@@ -71,7 +71,7 @@ export async function GET(request, { params }) {
         }
 
         // Return the fetched movie
-        return NextResponse.json({ data: movie, message: "Movie fetched successfully" }, { status: 200 });
+        return NextResponse.json({movie}, { status: 200 });
 
     } catch (error) {
         console.error("Error while fetching movie:", error);
