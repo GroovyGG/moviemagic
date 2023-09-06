@@ -27,21 +27,10 @@ export default function EditMovieForm({ id, movieName, description, movies, setM
             throw new Error("Failed to update the movie.");
           }
           
-        const movieIndex = movies.findIndex(movie => movie.id === id);
-        if (movieIndex !== -1) {
-            // Create a new array for immutability 
-            const newMovies = [...movies];
-            // Update the edited movie's data
-            newMovies[movieIndex] = {
-            ...newMovies[movieIndex],
-            movieName: newMovieName,
-            description: newDescription,
-            };
-            setMovies(newMovies);  // Set the updated movies list
-        }
+      
+        
+        router.push("/");
 
-          router.refresh();
-          router.push("/");
         } catch (error) {
           console.log(error);
         }
