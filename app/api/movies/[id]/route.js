@@ -1,6 +1,7 @@
 import Movie from "@/models/movie";
 import connectMongoDB from "@/libs/mongodb";
 import { NextResponse } from "next/server";
+import setCorsHeaders from "@/libs/cors"; 
 
 export async function PUT(request, { params }) {
     setCorsHeaders(request, NextResponse);
