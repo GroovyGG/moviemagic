@@ -1,9 +1,9 @@
 "use client";
 
 import { HiOutlineTrash } from "react-icons/hi";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"; // Please note that it's "next/router" not "next/navigation"
 
-export default function RemoveBtn({ id }) {  // Destructured id from props
+export default function RemoveBtn({ id, onRemove }) {  // Destructured id and onRemove from props
     const router = useRouter();
 
     const removeMovie = async () => {
@@ -22,18 +22,12 @@ export default function RemoveBtn({ id }) {  // Destructured id from props
                 method: 'DELETE',
                 cache: 'no-store'
             });
-            if(res.ok) {
-                // Refresh the current page to reflect the changes
-                router.refresh();
-                router.push("/");
-          
-            }
-    
-            if (!res.ok) {
+            
+            if (res.ok) {
+                onRemove(id); // Instantly reflect the deletion on the UI.
+            } else {
                 throw new Error('Failed to delete the movie.');
             }
-    
-            
     
         } catch (error) {
             console.error("Error deleting movie:", error.message);

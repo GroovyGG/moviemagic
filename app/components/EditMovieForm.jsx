@@ -3,10 +3,11 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function EditMovieForm({ id, movieName, description }) { // Destructured props
+export default function EditMovieForm({ id, movieName, description, movies, setMovies}) { // Destructured props
     const [newMovieName, setNewMovieName] = useState(movieName);
     const [newDescription, setNewDescription] = useState(description);
     const router = useRouter();
+
     // Handle form submission
     const handleSubmit = async (e) => {
         
@@ -26,12 +27,24 @@ export default function EditMovieForm({ id, movieName, description }) { // Destr
             throw new Error("Failed to update the movie.");
           }
     
-          router.refresh();
-          router.push("/");
-        } catch (error) {
-          console.log(error);
+          // Find the index of the movie that was just edited
+        const movieIndex = movies.findIndex(movie => movie.id === id);
+        if (movieIndex !== -1) {
+            // Create a new array for immutability 
+            const newMovies = [...movies];
+            // Update the edited movie's data
+            newMovies[movieIndex] = {
+            ...newMovies[movieIndex],
+            movieName: newMovieName,
+            description: newDescription,
+            };
+            setMovies(newMovies);  // Set the updated movies list
         }
-    
+
+        } catch (error) {
+        console.log(error);
+        }
+        
         // Implement logic to send the updated data to the server.
         // For instance, you might make an API call here with newMovieName and newDescription.
         console.log('Movie Name:', movieName);

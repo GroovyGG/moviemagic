@@ -36,7 +36,10 @@ export default function MoviesList() {
             setMovieNames(movies.movies);
         })();
     }, []);
-    
+
+    const handleRemove = (id) => {
+        setMovieNames(prevMovieNames => prevMovieNames.filter(m => m._id !== id));
+    }
 
     return (
         <>
@@ -50,7 +53,7 @@ export default function MoviesList() {
                 </div>
 
                 <div className="flex gap-3 items-center">
-                    <RemoveBtn id={m._id}/>
+                    <RemoveBtn id={m._id} onRemove={handleRemove}/> {/* Passing the onRemove function */}
                     <Link href={`/editMovie/${m._id}`}>
                         <div className="bg-slate-200 p-2 rounded-full cursor-pointer hover:bg-slate-300 transition-colors duration-300">
                             <HiPencilAlt className="text-slate-600 hover:text-slate-800" size={24} />
